@@ -58,12 +58,13 @@ namespace pppraca
             {
                 Console.WriteLine("podaj ID pracownika: ");
                 xID = Int32.Parse(Console.ReadLine());
-                if(xID < 0 || xID > emplolist.Count)
+                if(xID <= 0 || xID > emplolist.Count)
                 {
                     Console.WriteLine("blad");
                 }
-            } while (xID < 0 || xID > emplolist.Count);
-
+            } while (xID <= 0 || xID > emplolist.Count);
+            
+            xID -= 1;
             emplolist[xID].show();
 
             int age = DateTime.Now.Year - emplolist[xID].DOB.Year;
@@ -92,17 +93,17 @@ namespace pppraca
             {
                 if (days < 20)
                 {
-                    brut = (decimal)emplolist[xID].rateMonth * 0.8m;
+                    brut = emplolist[xID].rateMonth * 0.8m;
                 }
                 else
                 {
-                    brut = (decimal)emplolist[xID].rateMonth;
+                    brut = emplolist[xID].rateMonth;
                     brut += bonus;
                 }
             }
             else
             {
-                brut = (decimal)emplolist[xID].rateHour * (decimal)days * 8;
+                brut = emplolist[xID].rateHour * days * 8;
                 if (days == 20)
                 {
                     brut += bonus;
@@ -122,14 +123,11 @@ namespace pppraca
 
         static void initialize(List<employee> toInit)
         {
-            toInit.Add(new employee() {ID = 0, name = "Janusz Kowalski", DOB = new DateTime(1990, 1, 1), position = true, rateMonth = 3000});
-            toInit.Add(new employee() {ID = 1, name = "Janusz II Kowalski", DOB = new DateTime(1991, 2, 2), position = false, rateHour = 30});
-            toInit.Add(new employee() {ID = 2, name = "Janusz III Kowalski", DOB = new DateTime(1992, 3, 3), position = true, rateMonth =2400});
-            toInit.Add(new employee() {ID = 3, name = "Janusz IV Kowalski", DOB = new DateTime(1993, 4, 4), position = false, rateHour = 21});
-            toInit.Add(new employee() {ID = 4, name = "Janusz V Kowalski", DOB = new DateTime(1994, 5, 5), position = true, rateMonth = 5000});
-            toInit.Add(new employee() {ID = 5, name = "Janusz VI Kowalski", DOB = new DateTime(1995, 6, 6), position = true, rateMonth = 4200});
-            toInit.Add(new employee() {ID = 6, name = "Janusz VII Kowalski", DOB = new DateTime(1996, 7, 7), position = false, rateHour = 25});
-            toInit.Add(new employee() {ID = 7, name = "Janusz VIII Kowalski", DOB = new DateTime(1997, 8, 8), position = true, rateMonth = 7000});
+            toInit.Add(new employee() {ID = 1, name = "Jan Nowak", DOB = new DateTime(2002, 3, 4), position = false, rateHour = 18.5m});
+            toInit.Add(new employee() {ID = 2, name = "Agnieszka Kowalska", DOB = new DateTime(1973, 12, 15), position = true, rateMonth =2800});
+            toInit.Add(new employee() {ID = 3, name = "Robert Lewandowski", DOB = new DateTime(1980, 5, 23), position = false, rateHour = 29});
+            toInit.Add(new employee() {ID = 4, name = "Zofia Plucińska", DOB = new DateTime(1998, 11, 2), position = true, rateMonth = 4750});
+            toInit.Add(new employee() {ID = 5, name = "Grzegorz Braun", DOB = new DateTime(1960, 1, 29), position = false, rateHour = 48});
         }
     }
 }

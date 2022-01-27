@@ -8,8 +8,8 @@ namespace pppraca
         public string name { get; set; }
         public DateTime DOB { get; set; }
         public bool position { get; set; } //true = urzędnik; false = pracownik fizyczny
-        public int rateHour { get; set; }
-        public int rateMonth { get; set; }
+        public decimal rateHour { get; set; }
+        public decimal rateMonth { get; set; }
 
 
 
@@ -17,11 +17,11 @@ namespace pppraca
         {
             if (position == true)
             {
-                Console.WriteLine(ID + " ~ " + name + " ~ " + DOB.ToShortDateString() + " ~ urzędnik ~ brak ~ " + rateMonth);
+                Console.WriteLine(ID + " ~ " + name + " ~ " + DOB.ToShortDateString() + " ~ urzędnik ~ " + rateMonth + "/mc");
             }
             else
             {
-                Console.WriteLine(ID + " ~ " + name + " ~ " + DOB.ToShortDateString() + " ~ prac. fizyczny ~ " + rateHour + " ~ brak");
+                Console.WriteLine(ID + " ~ " + name + " ~ " + DOB.ToShortDateString() + " ~ prac. fizyczny ~ " + rateHour + "/h");
             }
         }
     }
