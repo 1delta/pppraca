@@ -73,7 +73,7 @@ namespace pppraca
             decimal net = 0;
             decimal brut = 0;
             decimal tax = 0;
-            decimal bonus = 1000;
+            decimal bonus = 0;
 
             while (i == 0)
             {
@@ -98,6 +98,8 @@ namespace pppraca
                 else
                 {
                     brut = emplolist[xID].rateMonth;
+                    Console.WriteLine("podaj wysokość premii");
+                    bonus = decimal.Parse(Console.ReadLine());
                     brut += bonus;
                 }
             }
@@ -106,6 +108,8 @@ namespace pppraca
                 brut = emplolist[xID].rateHour * days * 8;
                 if (days == 20)
                 {
+                    Console.WriteLine("podaj wysokość premii");
+                    bonus = decimal.Parse(Console.ReadLine());
                     brut += bonus;
                 }
             }
@@ -124,7 +128,7 @@ namespace pppraca
         static void initialize(List<employee> toInit)
         {
             toInit.Add(new employee() {ID = 1, name = "Jan Nowak", DOB = new DateTime(2002, 3, 4), position = false, rateHour = 18.5m});
-            toInit.Add(new employee() {ID = 2, name = "Agnieszka Kowalska", DOB = new DateTime(1973, 12, 15), position = true, rateMonth =2800});
+            toInit.Add(new employee() {ID = 2, name = "Agnieszka Kowalska", DOB = new DateTime(1973, 12, 15), position = true, rateMonth = 2800});
             toInit.Add(new employee() {ID = 3, name = "Robert Lewandowski", DOB = new DateTime(1980, 5, 23), position = false, rateHour = 29});
             toInit.Add(new employee() {ID = 4, name = "Zofia Plucińska", DOB = new DateTime(1998, 11, 2), position = true, rateMonth = 4750});
             toInit.Add(new employee() {ID = 5, name = "Grzegorz Braun", DOB = new DateTime(1960, 1, 29), position = false, rateHour = 48});
